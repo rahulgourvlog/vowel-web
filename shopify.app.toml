@@ -1,0 +1,36 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "146a52010f4832fe8ce98bbe7019b462"
+application_url = "https://sponsor-tanks-ukraine-flush.trycloudflare.com"
+embedded = true
+name = "product app"
+handle = "product-app-108"
+
+[webhooks]
+api_version = "2024-10"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks/app/uninstalled"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/scopes_update" ]
+  uri = "/webhooks/app/scopes_update"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://sponsor-tanks-ukraine-flush.trycloudflare.com/auth/callback",
+  "https://sponsor-tanks-ukraine-flush.trycloudflare.com/auth/shopify/callback",
+  "https://sponsor-tanks-ukraine-flush.trycloudflare.com/api/auth/callback"
+]
+
+[pos]
+embedded = false
+
+[build]
+dev_store_url = "productlayout.myshopify.com"
+automatically_update_urls_on_dev = true
